@@ -155,7 +155,7 @@ nav a:hover::after{transform:scaleX(1)}
 @keyframes wafloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
 /* Sobre: texto justificado */
-#sobre .about p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+#sobre .about p{text-align:left;hyphens:none;-webkit-hyphens:none}
 
 /* fotos: cartoes elegantes com legenda sobre a imagem */
 .people{gap:1.6rem;max-width:46rem}
@@ -177,6 +177,50 @@ nav a:hover::after{transform:scaleX(1)}
 .rv.in{opacity:1;transform:none}
 @media (max-width:34rem){.people{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.person img,.wa{animation:none}}
+
+/* como funciona: 4 passos */
+.how{background:var(--navy);border-top:0;padding:4.5rem 0 4.8rem;text-align:center}
+.how .eyebrow{display:flex;align-items:center;justify-content:center;gap:1rem;margin:0 0 1.1rem;color:var(--gold);font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.how .eyebrow::before,.how .eyebrow::after{content:"";width:2.2rem;height:1px;background:var(--gold)}
+.how h2{color:var(--cream);font-size:clamp(1.9rem,4.4vw,2.8rem);max-width:18ch;margin:0 auto 1rem}
+.how-sub{color:#b9c6cf;max-width:38rem;margin:0 auto 3.2rem;font-size:1.02rem}
+.flow{list-style:none;margin:0 0 3rem;padding:0;max-width:none;display:grid;grid-template-columns:repeat(4,1fr);gap:2.2rem;text-align:left}
+.flow li{position:relative;margin:0}
+.flow .num{display:flex;align-items:center;justify-content:center;width:3.2rem;height:3.2rem;border:1px solid var(--gold);border-radius:50%;font-family:"Newsreader",Georgia,serif;font-size:1.3rem;color:var(--gold);margin-bottom:1.4rem;background:var(--navy);position:relative;z-index:1}
+.flow li:not(:last-child)::after{content:"";position:absolute;top:1.6rem;left:4rem;right:-1.4rem;height:1px;background:rgba(201,167,107,.55);transform-origin:left}
+.flow h3{color:var(--cream);font-size:1.3rem;line-height:1.2;margin:0 0 .7rem}
+.flow p{color:#b9c6cf;font-size:.95rem;line-height:1.65;margin:0}
+.how .how-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--navy);padding:.9rem 1.7rem;transition:transform .3s ease,filter .3s ease}
+.how .how-btn:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.how .how-btn svg{width:1.2rem;height:1.2rem}
+.flow.js li{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.flow.js li:nth-child(2){transition-delay:.18s}.flow.js li:nth-child(3){transition-delay:.36s}.flow.js li:nth-child(4){transition-delay:.54s}
+.flow.js li:not(:last-child)::after{transform:scaleX(0);transition:transform 1s ease .5s}
+.flow.js.in li{opacity:1;transform:none}
+.flow.js.in li:not(:last-child)::after{transform:scaleX(1)}
+@media (max-width:62rem){.flow{grid-template-columns:repeat(2,1fr);gap:2.6rem 2rem}.flow li:not(:last-child)::after{display:none}}
+@media (max-width:34rem){.flow{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.flow.js li,.flow.js li::after{opacity:1!important;transform:none!important;transition:none!important}}
+.how h2{max-width:none}
+.how-sub{max-width:46rem;line-height:1.7}
+.flow{gap:2.2rem 1.8rem}
+.flow p{font-size:.92rem;line-height:1.7}
+@media (max-width:72rem){.flow{grid-template-columns:repeat(2,1fr);gap:2.8rem 2.4rem}.flow li:not(:last-child)::after{display:none}}
+@media (max-width:34rem){.flow{grid-template-columns:1fr}}
+
+.areas{align-items:start;gap:2.4rem}
+.area ul{list-style:none;padding-left:0;margin:.9rem 0 0}
+.area li{position:relative;padding-left:1.1rem;margin:.45rem 0;font-size:.95rem;line-height:1.5}
+.area li::before{content:"";position:absolute;left:.05rem;top:.58em;width:.34rem;height:.34rem;border-radius:50%;background:var(--brass)}
+.area .sub{margin:1.5rem 0 0;font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+.area .sub + ul{margin-top:.5rem}
+.how-note{max-width:46rem;margin:0 auto 2.6rem;border:1px solid rgba(201,167,107,.5);padding:1.4rem 1.6rem;text-align:left;display:flex;gap:1rem;align-items:flex-start}
+.how-note .ico{font-size:1.5rem;line-height:1.2}
+.how-note h3{font-family:"Newsreader",Georgia,serif;color:var(--cream);font-size:1.2rem;margin:0 0 .4rem}
+.how-note p{color:#b9c6cf;font-size:.95rem;line-height:1.65;margin:0}
+@media (min-width:62.01rem){.flow{grid-template-columns:repeat(4,1fr);gap:2.2rem 1.8rem}.flow li:not(:last-child)::after{display:block}}
+.area .desc{color:var(--muted);font-size:.95rem;line-height:1.65;margin:.2rem 0 0}
+.area .sub + ul{margin-top:.6rem}
 </style>
 </head>
 <body>
@@ -195,9 +239,9 @@ nav a:hover::after{transform:scaleX(1)}
 
 <main id="inicio">
   <div class="herobg"><div class="wrap hero">
-    <h1>Conhecimento jurídico, estratégia e compromisso com seus direitos</h1>
-    <p class="lead">Advocacia nas áreas trabalhista, previdenciária e de família e sucessões. Atendimento online em todo o Brasil, com atuação pautada na ética, na transparência e na responsabilidade profissional.</p>
-    <a class="btn" href="#contato">Entrar em contato</a>
+    <h1>Conhecimento jurídico, estratégia e compromisso com a proteção dos seus direitos</h1>
+    <p class="lead">Atuação em Direito do Trabalho, Previdenciário e de Família e Sucessões.<br>Atendimento presencial em São Luís (MA) e online em todo o Brasil.</p>
+    <a class="btn" href="#contato">Fale com nossas advogadas</a>
   </div></div>
 
   <section id="areas">
@@ -206,61 +250,89 @@ nav a:hover::after{transform:scaleX(1)}
       <div class="areas">
         <article class="area">
           <h3>Direito Previdenciário</h3>
-          <p>Orientação e atuação junto ao INSS e à Justiça Federal em questões de benefícios e contribuições.</p>
+          <p class="desc">Atuação em demandas previdenciárias, desde a análise de contribuições e planejamento de benefícios até requerimentos administrativos perante o INSS e medidas judiciais para reconhecimento e concessão de direitos.</p>
           <ul>
-            <li>Aposentadorias</li>
-            <li>Auxílio por incapacidade</li>
+            <li>Aposentadorias e planejamento previdenciário</li>
+            <li>Auxílio por incapacidade temporária e aposentadoria por incapacidade permanente</li>
+            <li>Auxílio-acidente</li>
             <li>Salário-maternidade</li>
             <li>Pensão por morte</li>
-            <li>BPC/LOAS</li>
-            <li>Análise de CNIS e tempo de contribuição</li>
+            <li>Benefício de Prestação Continuada (BPC/LOAS)</li>
+            <li>Revisão e restabelecimento de benefícios</li>
+            <li>Análise do CNIS e tempo de contribuição</li>
+            <li>Reconhecimento de tempo especial e rural</li>
+            <li>Recursos administrativos e demandas judiciais previdenciárias</li>
           </ul>
         </article>
         <article class="area">
           <h3>Direito do Trabalho</h3>
-          <p>Orientação e atuação para trabalhadores e para empresas, tanto na solução de conflitos quanto na prevenção deles.</p>
-          <p><strong>Para trabalhadores</strong></p>
+          <p class="desc">Atuação consultiva e contenciosa para trabalhadores e empresas, abrangendo a defesa de direitos, a prevenção de conflitos e a orientação jurídica nas relações de trabalho.</p>
+          <p class="sub">Para trabalhadores</p>
           <ul>
-            <li>Verbas rescisórias</li>
-            <li>Horas extras e jornada</li>
-            <li>FGTS e vínculo de emprego</li>
-            <li>Adicionais e benefícios</li>
-            <li>Acidente e doença ocupacional</li>
+            <li>Reconhecimento de vínculo empregatício</li>
+            <li>Verbas rescisórias e modalidades de rescisão</li>
+            <li>Horas extras, jornada de trabalho e intervalos</li>
+            <li>FGTS e direitos trabalhistas não pagos</li>
+            <li>Adicionais de insalubridade e periculosidade</li>
+            <li>Acidentes de trabalho e doenças ocupacionais</li>
+            <li>Assédio moral e outras violações de direitos</li>
+            <li>Estabilidade provisória e reintegração</li>
+            <li>Reclamações e defesas de direitos na Justiça do Trabalho</li>
           </ul>
-          <p><strong>Para empresas</strong></p>
+          <p class="sub">Para empresas</p>
           <ul>
-            <li>Consultoria trabalhista preventiva</li>
-            <li>Compliance trabalhista</li>
-            <li>Governança e políticas internas</li>
-            <li>Revisão de contratos e rotinas de RH</li>
-            <li>Defesa em ações trabalhistas</li>
+            <li>Consultoria e assessoria trabalhista preventiva</li>
+            <li>Compliance trabalhista e prevenção de passivos</li>
+            <li>Elaboração e revisão de contratos de trabalho</li>
+            <li>Orientação sobre rotinas e procedimentos de RH</li>
+            <li>Elaboração e revisão de políticas e normativos internos</li>
+            <li>Governança corporativa aplicada às relações de trabalho</li>
+            <li>Gestão de riscos trabalhistas</li>
+            <li>Defesa e acompanhamento de reclamações trabalhistas</li>
           </ul>
         </article>
         <article class="area">
           <h3>Direito de Família e Sucessões</h3>
-          <p>Orientação e atuação em questões familiares e sucessórias, com atenção ao diálogo e à busca de soluções consensuais sempre que possível.</p>
+          <p class="desc">Atuação em questões familiares e patrimoniais, com atenção às particularidades de cada situação, buscando soluções juridicamente adequadas e, sempre que possível, consensuais.</p>
+          <p class="sub">Como podemos ajudar</p>
           <ul>
-            <li>Divórcio e dissolução de união estável</li>
-            <li>Guarda e convivência</li>
-            <li>Pensão alimentícia</li>
+            <li>Divórcio judicial e extrajudicial</li>
+            <li>Dissolução e reconhecimento de união estável</li>
+            <li>Guarda e regulamentação de convivência</li>
+            <li>Fixação, revisão e execução de pensão alimentícia</li>
             <li>Partilha de bens</li>
-            <li>Reconhecimento de paternidade</li>
-            <li>Inventário e partilha de herança</li>
+            <li>Reconhecimento e investigação de paternidade</li>
+            <li>Acordos familiares</li>
+            <li>Inventário judicial e extrajudicial</li>
+            <li>Partilha de herança</li>
+            <li>Planejamento sucessório e questões relacionadas à sucessão patrimonial</li>
+            <li>Alvará judicial</li>
+            <li>Acordo pré-nupcial (pacto antenupcial)</li>
           </ul>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="atendimento">
+  <section id="atendimento" class="how">
     <div class="wrap">
+      <p class="eyebrow">Atendimento</p>
       <h2>Como funciona o atendimento</h2>
-      <ol class="steps">
-        <li>Você entra em contato e conta brevemente o que aconteceu.</li>
-        <li>Fazemos uma consulta por videochamada ou telefone para analisar seus documentos e sua situação.</li>
-        <li>Se houver contratação, o contrato e a procuração são assinados eletronicamente.</li>
-        <li>Você envia os documentos por canal seguro e recebe atualizações a cada etapa relevante do processo.</li>
+      <p class="how-sub">Da primeira conversa ao acompanhamento jurídico, você terá clareza sobre cada etapa. Um processo simples, transparente e acessível, com atendimento online e sem necessidade de deslocamento.</p>
+      <ol class="flow">
+        <li><span class="num">01</span><h3>Primeiro contato</h3><p>Você entra em contato pelo WhatsApp e apresenta brevemente sua situação, compartilhando suas dúvidas e necessidades.</p></li>
+        <li><span class="num">02</span><h3>Análise do seu caso</h3><p>Conhecemos sua demanda, avaliamos as informações e os documentos apresentados e identificamos as possibilidades jurídicas.</p></li>
+        <li><span class="num">03</span><h3>Orientação e honorários</h3><p>Explicamos seus direitos, os caminhos possíveis e as medidas cabíveis. Apresentamos as condições da prestação dos serviços e os honorários advocatícios de forma clara e transparente.</p></li>
+        <li><span class="num">04</span><h3>Contratação e acompanhamento</h3><p>Com a contratação, formalizamos os serviços por meio de contrato e procuração, com assinatura eletrônica. Acompanhamos os desdobramentos da demanda e mantemos você informado sobre os principais acontecimentos e etapas do processo.</p></li>
       </ol>
+      <div class="how-note">
+        <span class="ico" aria-hidden="true">📹</span>
+        <div>
+          <h3>O atendimento pode ser realizado online?</h3>
+          <p>Sim! Realizamos atendimentos por telefone ou videochamada, proporcionando orientação jurídica com praticidade e comodidade, independentemente de onde você esteja. Também oferecemos atendimento presencial em São Luís (MA), mediante agendamento.</p>
+        </div>
+      </div>
+      <a class="btn how-btn" href="https://wa.me/5598970108676?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>Começar minha análise no WhatsApp</a>
     </div>
   </section>
 
@@ -343,6 +415,16 @@ var els=[].slice.call(document.querySelectorAll('#sobre h2,#sobre .about,#sobre 
 els.forEach(function(e,i){e.classList.add('rv');e.style.setProperty('--d',((i%3)*0.12)+'s');});
 var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12});
 els.forEach(function(e){io.observe(e);});
+})();
+</script>
+<script>
+(function(){
+var f=document.querySelector('.flow');
+var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!f||rm||!('IntersectionObserver' in window)){return;}
+f.classList.add('js');
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){f.classList.add('in');io.disconnect();}});},{threshold:.2});
+io.observe(f);
 })();
 </script>
 </body>
